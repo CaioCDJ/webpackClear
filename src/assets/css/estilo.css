@@ -1,3 +1,8 @@
 body{
   background-color:#222;
+  background-image: url('../imgs/wall.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position:center;
+  height:100vh;
 }
