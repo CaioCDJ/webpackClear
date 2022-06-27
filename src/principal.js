@@ -1,6 +1,7 @@
 //const Pessoa = require('./pessoa')
 import Pessoa from './pessoa.js';
 import './modulos/moduloA';
+import './assets/css/estilo.css';
 
 const atendente = new Pessoa();
 
