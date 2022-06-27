@@ -1,9 +1,13 @@
 const webpack = require('webpack');
+const modeDev = process.env.NODE_ENV !=='production';
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const OptimizeCssAssetsPLugin = require('optimize-css-assets-webpack-plugin');
+
 
 module.exports ={
 
-  mode:'development',
+  mode:modeDev ? 'development': 'production',
   entry:'./src/principal.js',
   plugins:[
     new MiniCssExtractPlugin({
@@ -13,6 +17,15 @@ module.exports ={
   output:{
     filename:'principal.js',
     path:__dirname + '/public'
+  },
+  optimization:{
+    minimizer:[
+      new UglifyJsPlugin({
+        cache:true,
+        parallel:true
+      }),
+      new OptimizeCssAssetsPLugin({})
+    ]
   },
   module:{
     rules:[{
